@@ -1,12 +1,108 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;max-width:720px;margin:0 auto;padding:32px 16px 64px;line-height:1.7;color:#1C1F24;background:#F6F5F1}h1{font-size:24px}h2{font-size:17px;margin-top:28px}small,.m{color:#6a6f76;font-size:13px}a{color:#2F3A4A}table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}</style><title>낱말냥 — 약관·개인정보</title></head><body>
-<h1>낱말냥 (Natmalnyang)</h1>
-<p class="m">한글 낱말 맞추기 퍼즐</p>
-<ul>
-<li><a href="/privacy">개인정보처리방침</a></li>
-<li><a href="/terms">이용약관</a></li>
-<li><a href="/license">단어 출처·라이선스</a></li>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>낱말냥 — 매일 한 문제, 한글 낱말 맞추기 퍼즐</title>
+<meta name="description" content="매일 한 문제씩 모두에게 같은 낱말이 나와요. 자모 다섯 칸을 채워 여섯 번 안에 맞히고, 맞힌 낱말은 고양이 책방의 책이 돼요. 스테이지 240개.">
+<link rel="canonical" href="https://natmalnyang.soarus.dev/">
+<!-- 네이버 사이트 소유확인 태그 자리 (값은 서치어드바이저에서 받아 온다)
+<meta name="naver-site-verification" content="여기에-값">
+-->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="낱말냥">
+<meta property="og:title" content="낱말냥 — 매일 한 문제, 한글 낱말 맞추기 퍼즐">
+<meta property="og:description" content="자모 다섯 칸을 채워 오늘의 낱말을 맞혀요. 맞힌 낱말은 고양이 책방의 책이 돼요.">
+<meta property="og:url" content="https://natmalnyang.soarus.dev/">
+<meta property="og:image" content="https://natmalnyang.soarus.dev/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/icon-192.png">
+<style>
+:root{--ink:#1C1F24;--dim:#6a6f76;--bg:#F6F5F1;--card:#fff;--line:#e4e1d9;--accent:#2F3A4A}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;
+  margin:0;line-height:1.7;color:var(--ink);background:var(--bg)}
+.wrap{max-width:720px;margin:0 auto;padding:40px 16px 56px}
+a{color:var(--accent)}
+.hero{text-align:center}
+.hero img.icon{width:104px;height:104px;border-radius:24px;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+h1{font-size:28px;margin:16px 0 4px}
+.tag{font-size:17px;color:var(--ink);margin:0 0 6px}
+.sub{color:var(--dim);font-size:14px;margin:0}
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:22px 0 0}
+.badge{display:inline-block;padding:11px 18px;border-radius:12px;background:var(--accent);color:#fff;
+  text-decoration:none;font-size:15px;font-weight:600}
+.badge.alt{background:#fff;color:var(--accent);border:1px solid var(--line)}
+.shots{display:flex;gap:12px;overflow-x:auto;padding:28px 0 8px;scroll-snap-type:x mandatory}
+.shots figure{margin:0;flex:0 0 46%;max-width:220px;scroll-snap-align:center}
+.shots img{width:100%;border-radius:14px;border:1px solid var(--line);display:block}
+.shots figcaption{font-size:13px;color:var(--dim);text-align:center;margin-top:6px}
+h2{font-size:19px;margin:36px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0}
+.card h3{font-size:16px;margin:0 0 4px}
+.card p{margin:0;font-size:15px;color:#3b4047}
+ul.links{list-style:none;padding:0;margin:8px 0 0}
+ul.links li{margin:4px 0}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;font-size:13px;color:var(--dim)}
+footer a{color:var(--dim)}
+@media (max-width:420px){.shots figure{flex:0 0 62%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <img class="icon" src="assets/icon-192.png" alt="낱말냥 앱 아이콘">
+  <h1>낱말냥</h1>
+  <p class="tag">매일 한 문제, 한글 낱말 맞추기 퍼즐</p>
+  <p class="sub">자모 다섯 칸을 채워 오늘의 낱말을 맞혀요. 맞힌 낱말은 고양이 책방의 책이 돼요.</p>
+  <div class="badges">
+    <a class="badge" href="https://play.google.com/store/apps/details?id=kr.soarus.natmalnyang">Google Play에서 받기</a>
+    <a class="badge alt" href="https://apps.apple.com/kr/app/id6834243531">App Store에서 받기</a>
+  </div>
+</header>
+
+<div class="shots">
+  <figure><img src="assets/1-daily.jpg" alt="오늘의 낱말 화면"><figcaption>오늘의 낱말</figcaption></figure>
+  <figure><img src="assets/2-result.jpg" alt="맞힌 낱말의 뜻을 보여 주는 결과 화면"><figcaption>맞히면 뜻까지</figcaption></figure>
+  <figure><img src="assets/3-map.jpg" alt="고양이가 걸어가는 챕터 지도"><figcaption>챕터 지도</figcaption></figure>
+  <figure><img src="assets/4-bookshop.jpg" alt="책이 꽂힌 고양이 책방"><figcaption>고양이 책방</figcaption></figure>
+</div>
+
+<h2>이렇게 놀아요</h2>
+
+<div class="card">
+  <h3>하루에 한 문제</h3>
+  <p>모두가 같은 낱말을 풀어요. 자모 다섯 칸을 여섯 번 안에 채워 보세요. 초록은 자리까지 맞음, 노랑은 자리가 다름이에요. 가입도 로그인도 없어요.</p>
+</div>
+<div class="card">
+  <h3>스테이지 240개를 고양이와 함께</h3>
+  <p>챕터 지도를 따라 한 칸씩 열어요. 네 칸에서 다섯, 여섯 칸으로 늘어나고 챕터 끝에는 보스 낱말이 기다려요.</p>
+</div>
+<div class="card">
+  <h3>맞힌 낱말은 책이 돼요</h3>
+  <p>맞힌 낱말마다 책 한 권이 책장에 꽂혀요. 책을 누르면 뜻과 예문을 다시 볼 수 있어요. 모은 생선으로 책방도 꾸며요.</p>
+</div>
+
+<h2>도움이 필요하신가요</h2>
+<div class="card">
+  <p>앱이 이상하거나 궁금한 것이 있으면 메일로 알려 주세요. 보내 주신 메일은 사람이 읽고 답합니다.<br>
+  <a href="mailto:help@99jeomjip.com">help@99jeomjip.com</a></p>
+</div>
+
+<h2>약관과 개인정보</h2>
+<ul class="links">
+  <li><a href="/privacy">개인정보처리방침</a></li>
+  <li><a href="/terms">이용약관</a></li>
+  <li><a href="/license">단어 출처·라이선스</a></li>
 </ul>
-<hr style="border:0;border-top:1px solid #ddd;margin:32px 0 16px">
-<p class="m">솔러스(soarus) · 대표 김성엽 · 사업자등록번호 655-27-02182 · 통신판매업신고 제2026-서울서초-2954호 · 서울 서초구 효령로 31길 77 · 0507-2097-2420 · <a href="mailto:help@99jeomjip.com">help@99jeomjip.com</a><br>호스팅 제공자: GitHub, Inc.</p>
-<p class="m"><a href="/">낱말냥 약관·개인정보</a> · <a href="/privacy">개인정보처리방침</a> · <a href="/terms">이용약관</a> · <a href="/license">단어 출처·라이선스</a></p>
-</body></html>
+
+<footer>
+  <p>솔러스(soarus) · 대표 김성엽 · 사업자등록번호 655-27-02182 · 통신판매업신고 제2026-서울서초-2954호 · 서울 서초구 효령로 31길 77 · 0507-2097-2420 · <a href="mailto:help@99jeomjip.com">help@99jeomjip.com</a><br>호스팅 제공자: GitHub, Inc.</p>
+  <p><a href="/">낱말냥</a> · <a href="/privacy">개인정보처리방침</a> · <a href="/terms">이용약관</a> · <a href="/license">단어 출처·라이선스</a></p>
+</footer>
+
+</div>
+</body>
+</html>
