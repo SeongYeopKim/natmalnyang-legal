@@ -9,7 +9,7 @@
 <ul>
 <li>Natmalnyang has <b>no sign-up and no login.</b> It does not collect your name, email address, phone number, contacts or location (GPS).</li>
 <li>Your game progress, streaks, bookshop, practice records, fish and hearts are stored <b>only on this device.</b></li>
-<li>We look at <b>usage statistics</b> about how the app is used, collected without your name (section 2). We cannot tell who used the app, and the words you enter in the game are never sent. You can turn this off in Settings.</li>
+<li>We look at <b>usage statistics</b> about how the app is used, collected without your name (section 2). We cannot tell who used the app, and the words you enter in the game are never sent. You can turn this off in Settings. <!-- DRAFT (ump-consent decision 6, unapproved) --> In the EEA, the UK and Switzerland, usage statistics are off until you turn them on.</li>
 <li>If you send a <b>report</b> from inside the app (the "I saw something strange" button, or "Report a bug" in Settings), the text you write goes to the Operator's server (section 2). <b>One random number</b> that identifies the device is used with it, so that we can send you a reply. No name, email address or phone number is collected here either.</li>
 <li>The only company that receives information is Google — for ads (AdMob), usage statistics (Firebase Analytics), delivery of word data (Firebase Hosting), and the Google servers (Firebase) that hold in-app reports (sections 2 and 4).</li>
 </ul>
@@ -27,6 +27,7 @@
 <tr><td>When the app checks for new word data (automatic, at most once a day)</td><td>Your internet address (IP) and the time of the request reach a Google server (Firebase Hosting) because the connection requires it. No device identifier, records or entered words are sent. The Operator does not keep this access record separately</td><td>Receiving corrections to word lists and meanings without an app update</td><td>Not kept by the Operator</td></tr>
 </table>
 <p><b>Ads are not personalized.</b> On both Android and iOS the app requests only non-personalized ads. On iOS the app-tracking permission prompt (ATT) is not shown.</p>
+<p>In the European Economic Area, the United Kingdom and Switzerland, the app first shows Google's consent message before any ad is requested (section 12).</p>
 <p>Advertising identifiers are not used for usage statistics. Your name, email address and contacts are never sent anywhere, and neither are the words you enter in the game. For in-app reports, only the text you write is sent.</p>
 <p>The <b>random number</b> used for in-app reports only tells devices apart; it is not linked to your name, email address or phone number. If you delete the app, you can no longer see replies to reports sent with that number.</p>
 
@@ -43,7 +44,7 @@
 <tr><td>Google LLC (Firebase Hosting)</td><td>United States and others</td><td>Connecting IP address</td><td>When the app checks for or downloads new word data, over an encrypted connection</td><td>Not kept by the Operator</td></tr>
 </table>
 <ul>
-<li>If you do not want information to go abroad, you can buy "Remove ads". Banner and full-screen ads then disappear and no information goes to ad companies. However, <b>rewarded ads</b> (to get hearts or extra tries) appear only when you press "Watch" yourself, and only then does information go to an ad company. If you do not press it, nothing is sent. You can keep playing as before.</li>
+<li>To stop information going to ad companies, you can buy "Remove ads". Banner and full-screen ads then disappear and no information goes to ad companies. However, <b>rewarded ads</b> (to get hearts or extra tries) appear only when you press "Watch" yourself, and only then does information go to an ad company. If you do not press it, nothing is sent. You can keep playing as before. Separately, the connection the app makes to check for new word data (your IP address) reaches a Google server (Firebase Hosting) whether or not you buy "Remove ads". This check happens at most once a day and is needed to receive word data; the Operator does not keep this record.</li>
 <li>Usage statistics stop being sent when you turn off <b>Settings → "Send usage statistics"</b>.</li>
 <li>You can reset or turn off the advertising identifier in your phone settings (Android: Settings → Google → Ads; iOS: Settings → Privacy → Tracking).</li>
 <li>In-app reports send information <b>only when you send them</b>. If you do not send one, nothing is sent.</li>
@@ -56,7 +57,7 @@
 <h2>6. Your rights</h2>
 <ul>
 <li><b>Records on the device:</b> deleted with the app. Nothing needs to be requested from the Operator.</li>
-<li><b>Ads:</b> you can buy "Remove ads" or reset the advertising identifier on your phone (section 4).</li>
+<li><b>Ads:</b> In the EEA, the UK and Switzerland you can change your choice at any time in Settings → "Ad privacy choices". You can also buy "Remove ads" or reset the advertising identifier on your phone (section 4).</li>
 <li><b>Usage statistics:</b> turn them off in Settings, or request deletion by email.</li>
 <li><b>In-app reports:</b> view what you sent on the app's "My reports" screen and delete those still under review yourself. For handled reports, request deletion by email.</li>
 <li>You may request access, correction or suspension of processing by email. We answer within 10 days.</li>
@@ -67,6 +68,10 @@
 <p>The first time you try to use such a feature, the app <b>asks for your birth year once.</b> This answer is <b>stored only on that device and is never sent anywhere.</b> If you are under 14, only that feature is turned off and you can keep playing.</p>
 <p>The reason is that Article 22-2 of the Korean Personal Information Protection Act requires consent from a legal guardian before processing the personal information of children under 14. To avoid collecting a guardian's contact details or card information, the Operator chose <b>not to process the information, instead of asking for consent.</b></p>
 <p>Because the app has ads and usage statistics, it is declared in the stores as intended for ages 13 and over.</p>
+
+<p><b>Children outside Korea.</b> Natmalnyang is a general word game and is not directed to children under 13. We do not knowingly collect personal information from children under 13.</p>
+<p>If a birth year has been entered on the device (above), the app uses it only on that device: for users under 13 it asks Google to treat ad requests as child-directed (COPPA), and for users under 16 it marks ad requests as coming from a user under the age of consent, which turns off personalized ads, and Google's consent message is handled accordingly. The birth year itself is never sent.</p>
+<p>If you believe a child under 13 has sent us personal information (for example in an in-app report or an email), email <a href="mailto:soaruskr@gmail.com">soaruskr@gmail.com</a> and we will delete it.</p>
 
 <h2>8. Security measures</h2>
 <p>What the app exchanges over the internet is ads, usage statistics, checks for new word data, and in-app reports. All use encrypted connections (HTTPS).</p>
@@ -86,6 +91,23 @@
 
 <h2>11. Changes</h2>
 <p>If this policy changes, we will announce it on this page before it takes effect. Changes that increase the information we receive will also be noted in the app update notes.</p>
+<!-- DRAFT section 12: from claude/ump-consent mockups/61-ad-consent-policy.md; depends on unapproved ump-consent decisions 1-7; not legal advice -->
+<h2>12. Users in the European Economic Area, the United Kingdom and Switzerland</h2>
+<p><b>Controller.</b> soarus (contact details in section 10) is the controller of the information described in this policy.</p>
+<p><b>Legal bases.</b></p>
+<ul>
+<li>Ads (Google AdMob): your consent, given in Google's consent message that appears when you first open the app (Art. 6(1)(a) GDPR). If you do not consent, Google may still show non-personalized or limited ads, using only what Google needs to deliver ads and prevent fraud. The app requests only non-personalized ads in either case.</li>
+<li>Usage statistics (Firebase Analytics): your consent. They are off until you turn on Settings → "Send usage statistics", and you can turn them off again at any time.</li>
+<li>In-app reports: performing the service you asked for — reading your report and replying (Art. 6(1)(b)); keeping a one-day transformed IP count to stop spam: our legitimate interest in keeping the report box usable (Art. 6(1)(f)).</li>
+<li>Inquiry emails: replying to you (Art. 6(1)(b)).</li>
+<li>Purchases: handled by Google Play or the App Store under their own terms.</li>
+<li>Checking for new word data (section 2): only your IP address reaches Google's server for the connection; the Operator keeps no record. <!-- DRAFT: legal basis for this line not in the source note; add on legal review --></li>
+</ul>
+<p><b>Withdrawing consent.</b> Open Settings → "Ad privacy choices" to see Google's message again and change your choice. Turn off "Send usage statistics" to stop statistics. Withdrawing does not affect processing done before.</p>
+<p><b>Your rights.</b> You have the right to access, correct, erase, restrict or object to processing of your information, the right to data portability, and the right to withdraw consent. Email <a href="mailto:soaruskr@gmail.com">soaruskr@gmail.com</a>; we answer within one month. For usage statistics, include the "statistics number" shown in Settings so we can find your data. You may also complain to the data protection authority where you live or work.</p>
+<p><b>Transfers outside the EEA/UK.</b> Google LLC processes information in the United States and other countries (section 4). Google relies on the EU–US Data Privacy Framework and the European Commission's standard contractual clauses.</p>
+<p><b>Automated decisions.</b> We make no decisions about you based solely on automated processing that have legal or similarly significant effects.</p>
+<!-- UNDECIDED (Art. 27 representative): "We have not appointed an EU or UK representative." — included only if the conductor decides -->
 <hr style="border:0;border-top:1px solid #ddd;margin:32px 0 16px">
 <p class="m">soarus (Seoul, Korea) · Representative: Kim Seongyeop · Business registration no. 655-27-02182 · E-commerce registration no. 2026-Seoul Seocho-2954 · 77, Hyoryeong-ro 31-gil, Seocho-gu, Seoul, Republic of Korea · +82 507-2097-2420 · <a href="mailto:soaruskr@gmail.com">soaruskr@gmail.com</a><br>Hosting provider: GitHub, Inc.</p>
 <p class="m"><a href="/">Natmalnyang terms &amp; privacy</a> · <a href="/privacy-en.html">Privacy Policy</a> · <a href="/terms-en.html">Terms of Service</a> · <a href="/license">Word sources &amp; licenses</a> · <a href="/privacy">한국어</a></p>
