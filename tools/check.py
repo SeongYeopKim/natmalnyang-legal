@@ -23,6 +23,7 @@ ref = {p: counts(get(f'/en/{p}')[1]) for p in ('privacy','terms','license')}
 for l in ORDER:
     pre = '/' if l == 'ko' else f'/{l}/'
     for p in ('', 'privacy', 'terms', 'license'):
+        if l == 'ja' and p: continue
         u = pre + p; c, s = get(u); n += 1
         if c != 200: bad.append((u, c)); continue
         if l not in ('ko','en') and p:

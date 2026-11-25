@@ -1,6 +1,7 @@
 {
  "order": [
   "ko",
+  "ja",
   "en",
   "es",
   "pt",
@@ -32,6 +33,7 @@
  ],
  "own": {
   "ko": "한국어",
+  "ja": "日本語",
   "en": "English",
   "es": "Español",
   "pt": "Português",
@@ -90,6 +92,7 @@
   "sq": "Fjalëmace",
   "sv": "Ordmjau",
   "tr": "Kedi Kelime",
-  "uk": "Словокішка"
+  "uk": "Словокішка",
+  "ja": "ことばネコ"
  }
 }

@@ -7,12 +7,16 @@ L = json.load(open(R/'tools/langs.json'))
 ORDER, OWN, NAME = L['order'], L['own'], L['name']
 SITE = 'https://natmalnyang.soarus.dev'
 PAGES = ['index', 'privacy', 'terms', 'license']
+NOLEGAL = {'ja'}   # 소개만 있는 언어: 방침·약관·출처 링크는 영어판으로 잇는다(새 법률 번역을 만들지 않음)
 SLUG = {'index': '', 'privacy': 'privacy', 'terms': 'terms', 'license': 'license'}
 
 def path(lang, page):          # 주소 경로
+    if lang in NOLEGAL and page != 'index': lang = 'en'
     base = '/' if lang == 'ko' else f'/{lang}/'
     return base + SLUG[page]
 def url(lang, page): return SITE + path(lang, page)
+def swap(l, page):             # 언어 바꿈 링크: 그 언어에 이 쪽이 없으면 그 언어 소개로
+    return path(l, 'index') if (l in NOLEGAL and page != 'index') else path(l, page)
 
 BAR_CSS = ('<style id="i18n-css">.langbar{display:flex;justify-content:flex-end;max-width:720px;margin:0 auto;padding:10px 16px 0}'
  '.langbar details{position:relative}.langbar summary{list-style:none;cursor:pointer;border:1px solid #e4e1d9;background:#fff;border-radius:999px;padding:6px 14px;font-size:13px;color:#2F3A4A;font-weight:600}'
@@ -25,17 +29,17 @@ BAR_JS = ('<script>try{document.addEventListener("click",function(e){var a=e.tar
  'if(sessionStorage.getItem("natmal_auto")){sessionStorage.removeItem("natmal_auto");var n=document.getElementById("langnote");if(n)n.style.display="block"}}catch(e){}</script>')
 
 def hreflang(page):
-    out = [f'<link rel="alternate" hreflang="{l}" href="{url(l,page)}">' for l in ORDER]
+    out = [f'<link rel="alternate" hreflang="{l}" href="{url(l,page)}">' for l in ORDER if not (l in NOLEGAL and page != 'index')]
     out.append(f'<link rel="alternate" hreflang="x-default" href="{url("ko",page)}">')
     return '\n'.join(out)
 
 def langbar(cur, page):
-    items = ''.join(f'<li><a data-l="{l}" lang="{l}" href="{path(l,page)}"{" class=cur" if l==cur else ""}>{OWN[l]}</a></li>' for l in ORDER)
+    items = ''.join(f'<li><a data-l="{l}" lang="{l}" href="{swap(l,page)}"{" class=cur" if l==cur else ""}>{OWN[l]}</a></li>' for l in ORDER)
     note = '<div class="langnote" id="langnote">🌐 <a data-l="ko" href="/">한국어 (Korean)</a></div>'
     return f'<nav class="langbar" aria-label="Language"><details><summary>🌐 {OWN[cur]} ▾</summary><ul>{items}</ul></details></nav>\n{note}'
 
 def langfoot(cur, page):
-    return '<p class="langfoot">' + ' '.join(f'<a data-l="{l}" lang="{l}" href="{path(l,page)}">{OWN[l]}</a>' for l in ORDER) + '</p>'
+    return '<p class="langfoot">' + ' '.join(f'<a data-l="{l}" lang="{l}" href="{swap(l,page)}">{OWN[l]}</a>' for l in ORDER) + '</p>'
 
 def esc(s): return s.replace('&', '&amp;').replace('"', '&quot;')
 
@@ -48,6 +52,7 @@ def rewrite_links(body, lang):
 
 def build_lang(lang, root_styles):
     for page in PAGES:
+        if lang in NOLEGAL and page != 'index': continue
         src = (R/'src'/lang/f'{page}.html').read_text()
         src = src.replace('{{NAME}}', NAME[lang])
         m = re.match(r'<title>(.*?)</title>\n', src); title = m.group(1); body = src[m.end():]
@@ -104,13 +109,13 @@ def main():
     idx_style = re.search(r'<style>.*?</style>', ko_index, re.S).group(0)
     styles = {'legal': legal_style, 'index': idx_style}
     for lang in ORDER[1:]:
-        if not (R/'src'/lang/'terms.html').exists(): print('skip',lang); continue
+        if not (R/'src'/lang/('index.html' if lang in NOLEGAL else 'terms.html')).exists(): print('skip',lang); continue
         build_lang(lang, styles)
     inject_ko()
     # 옛 영문 주소 → 새 주소
     for old, new in (('privacy-en', 'privacy'), ('terms-en', 'terms')):
         (R/f'{old}.html').write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Redirect</title><link rel="canonical" href="{SITE}/en/{new}"><meta http-equiv="refresh" content="0; url=/en/{new}"></head><body><a href="/en/{new}">/en/{new}</a></body></html>\n')
     lastmod = {'index': '2026-11-21', 'privacy': '2026-11-21', 'terms': '2026-11-21', 'license': '2026-11-21'}
-    urls = ''.join(f'  <url>\n    <loc>{url(l,p)}</loc>\n    <lastmod>{lastmod[p]}</lastmod>\n    <priority>{1.0 if p=="index" else 0.5}</priority>\n  </url>\n' for l in ORDER for p in PAGES)
+    urls = ''.join(f'  <url>\n    <loc>{url(l,p)}</loc>\n    <lastmod>{lastmod[p]}</lastmod>\n    <priority>{1.0 if p=="index" else 0.5}</priority>\n  </url>\n' for l in ORDER for p in PAGES if not (l in NOLEGAL and p != 'index'))
     (R/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n')
 main()
