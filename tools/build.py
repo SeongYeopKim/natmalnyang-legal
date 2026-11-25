@@ -67,7 +67,9 @@ def build_lang(lang, root_styles):
             new = p.group(0)[:-4] + f' <a href="/{SLUG[page]}">한국어 원문 →</a></p>'
             body = body[:p.start()] + new + body[p.end():]
         pre = f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
-        pre += root_styles['index' if page == 'index' else 'legal']
+        st = root_styles['index' if page == 'index' else 'legal']
+        if lang == 'ja': st = re.sub(r'font-family:[^;}]*', 'font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,system-ui,sans-serif', st, count=1)
+        pre += st
         pre += f'<title>{title}</title>\n<link rel="canonical" href="{url(lang,page)}">\n{hreflang(page)}\n'
         if page == 'index':
             pre += f'<meta name="description" content="{desc}">\n<meta property="og:type" content="website"><meta property="og:site_name" content="{esc(NAME[lang])}">'
