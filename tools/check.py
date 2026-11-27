@@ -28,6 +28,7 @@ for l in ORDER:
         if c != 200: bad.append((u, c)); continue
         if l not in ('ko','en') and p:
             if counts(s) != ref[p]: bad.append((u, 'count', counts(s), ref[p]))
+        if '○○' in s: bad.append((u,'date-placeholder'))
         if '{{' in s or ('word'+'le') in s.lower() or ('워'+'들') in s: bad.append((u, 'forbidden/placeholder'))
         if '7 days before' in s or '시행 7일' in s: bad.append((u,'7day'))
         for h in re.findall(r'href="(/[^"#]*)"', s):
