@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>낱말냥 친구 초대장</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/icon-192.png">
+<!-- 초대 링크(/f/코드 · /r/코드 · 옛 /invite/코드)의 웹 쪽 — 앱이 있으면 앱이 먼저 열리고, 없을 때 이 쪽이 보인다(목업 73 ④-가).
+     GitHub Pages는 없는 주소에 이 파일을 주므로 주소를 읽어 그린다. 서버에 묻지 않는다(부른 사람 이름은 안 나온다).
+     Google Play 단추는 &referrer=f%3D코드(또는 r%3D코드)를 실어 가고, 앱이 설치 뒤 처음 열 때 읽는다(Play 설치 리퍼러). -->
+<style>
+:root{--ink:#1C1F24;--dim:#6a6f76;--bg:#F6F5F1;--card:#fff;--line:#e4e1d9;--accent:#2F3A4A}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;
+  margin:0;line-height:1.7;color:var(--ink);background:var(--bg)}
+.wrap{max-width:480px;margin:0 auto;padding:48px 16px 56px;text-align:center}
+.icon{font-size:44px;line-height:1}
+h1{font-size:22px;margin:12px 0 6px}
+p{margin:0;color:var(--dim);font-size:15px}
+.code{display:inline-block;margin:22px 0 10px;padding:10px 22px;border-radius:14px;background:var(--card);
+  border:1px solid var(--line);font-size:30px;font-weight:700;letter-spacing:.14em}
+button{font:inherit}
+.copy{display:block;margin:0 auto;padding:10px 20px;border-radius:12px;border:1px solid var(--line);background:#fff;
+  color:var(--accent);font-size:15px;font-weight:600;cursor:pointer}
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:24px 0 0}
+.badge{display:inline-block;padding:11px 18px;border-radius:12px;background:var(--accent);color:#fff;
+  text-decoration:none;font-size:15px;font-weight:600}
+.home{display:inline-block;margin-top:28px;font-size:14px;color:var(--dim)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div id="inv" hidden>
+    <div class="icon">💌</div>
+    <h1 id="title">낱말냥 친구 초대장</h1>
+    <p>앱을 깔고 열면 초대가 이어져요. 아이폰은 아래 코드를 먼저 복사해 두세요.</p>
+    <div class="code" id="code"></div>
+    <button class="copy" id="copy" type="button">코드 복사</button>
+    <div class="badges">
+      <a class="badge" href="https://apps.apple.com/kr/app/id6834243531">App Store</a>
+      <a class="badge" id="play" href="https://play.google.com/store/apps/details?id=kr.soarus.natmalnyang">Google Play</a>
+    </div>
+  </div>
+  <div id="none">
+    <h1>페이지를 찾을 수 없어요</h1>
+    <p>주소가 바뀌었거나 없는 페이지예요.</p>
+  </div>
+  <a class="home" href="/">낱말냥 홈으로</a>
+</div>
+<script>
+(function () {
+  // 앱의 Friend.normalize_code와 같은 규칙 — 소문자·O→0·I/L→1, Crockford 여섯 자
+  var m = location.pathname.match(/^\/(f|r|invite)\/([0-9A-Za-z]{6})\/?$/);
+  if (!m) return;
+  var code = m[2].toUpperCase().replace(/O/g, "0").replace(/[IL]/g, "1");
+  if (!/^[0-9A-HJKMNP-TV-Z]{6}$/.test(code)) return;
+  var room = m[1] === "r";
+  document.getElementById("none").hidden = true;
+  document.getElementById("inv").hidden = false;
+  document.getElementById("code").textContent = code;
+  if (room) document.getElementById("title").textContent = "낱말냥 도전방 초대장";
+  document.title = room ? "낱말냥 도전방 초대장" : "낱말냥 친구 초대장";
+  var play = document.getElementById("play");
+  play.href = play.href + "&referrer=" + encodeURIComponent((room ? "r=" : "f=") + code);
+  var btn = document.getElementById("copy");
+  btn.addEventListener("click", function () {
+    var done = function () { btn.textContent = "복사했어요"; };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, function () { prompt("코드를 길게 눌러 복사하세요", code); });
+    } else {
+      prompt("코드를 길게 눌러 복사하세요", code);
+    }
+  });
+})();
+</script>
+</body>
+</html>

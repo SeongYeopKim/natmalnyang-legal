@@ -2,8 +2,23 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["RP9C54T7X7.kr.soarus.natmalnyang"],
-        "components": [{ "/": "/invite/*", "comment": "친구 초대 링크 — 앱이 코드를 받아 친구 되기 화면을 연다" }]
+        "appIDs": [
+          "RP9C54T7X7.kr.soarus.natmalnyang"
+        ],
+        "components": [
+          {
+            "/": "/f/*",
+            "comment": "내 초대 링크(목업 73) — 앱이 코드를 받아 친구 되기 확인 화면을 연다"
+          },
+          {
+            "/": "/r/*",
+            "comment": "도전방 링크(목업 73) — 앱이 방 확인 화면을 연다"
+          },
+          {
+            "/": "/invite/*",
+            "comment": "옛 꼴 초대 링크(시험판 9~11이 보낸 것)"
+          }
+        ]
       }
     ]
   }
