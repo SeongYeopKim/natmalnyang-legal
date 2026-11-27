@@ -6,13 +6,5 @@
       "package_name": "kr.soarus.natmalnyang",
       "sha256_cert_fingerprints": ["PLAY_APP_SIGNING_SHA256"]
     }
-  },
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "kr.soarus.natmalnyang.dev",
-      "sha256_cert_fingerprints": ["61:2F:E5:E3:EC:96:56:54:6D:A8:32:A6:8F:F2:F8:5C:71:3F:98:59:F9:FC:78:64:B1:16:19:E9:2F:64:C7:C3"]
-    }
   }
 ]
