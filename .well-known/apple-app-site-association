@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["RP9C54T7X7.kr.soarus.natmalnyang"],
+        "components": [{ "/": "/invite/*", "comment": "친구 초대 링크 — 앱이 코드를 받아 친구 되기 화면을 연다" }]
+      }
+    ]
+  }
+}
