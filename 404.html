@@ -26,6 +26,7 @@ button{font:inherit}
 .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:24px 0 0}
 .badge{display:inline-block;padding:11px 18px;border-radius:12px;background:var(--accent);color:#fff;
   text-decoration:none;font-size:15px;font-weight:600}
+.out{margin-top:16px;background:#FEE500;color:#1C1F24}
 .home{display:inline-block;margin-top:28px;font-size:14px;color:var(--dim)}
 [hidden]{display:none!important}
 </style>
@@ -38,6 +39,7 @@ button{font:inherit}
     <p>앱을 깔고 열면 초대가 이어져요. 아이폰은 아래 코드를 먼저 복사해 두세요.</p>
     <div class="code" id="code"></div>
     <button class="copy" id="copy" type="button">코드 복사</button>
+    <a class="badge out" id="out" href="#" hidden>Safari·Chrome으로 열기</a>
     <div class="badges">
       <a class="badge" href="https://apps.apple.com/kr/app/id6834243531">App Store</a>
       <a class="badge" id="play" href="https://play.google.com/store/apps/details?id=kr.soarus.natmalnyang">Google Play</a>
@@ -64,6 +66,15 @@ button{font:inherit}
   document.title = room ? "낱말냥 도전방 초대장" : "낱말냥 친구 초대장";
   var play = document.getElementById("play");
   play.href = play.href + "&referrer=" + encodeURIComponent((room ? "r=" : "f=") + code);
+  // 카카오톡 인앱 브라우저는 앱 링크(Universal Links·App Links)를 열지 않는다 → 기본 브라우저로 넘긴다.
+  // 넘어간 뒤에는 Safari·Chrome이 앱을 연다. 자동으로 안 넘어가면 노란 단추로 다시 넘긴다.
+  if (/KAKAOTALK/i.test(navigator.userAgent)) {
+    var ext = "kakaotalk://web/openExternal?url=" + encodeURIComponent(location.href);
+    var out = document.getElementById("out");
+    out.href = ext;
+    out.hidden = false;
+    location.href = ext;
+  }
   var btn = document.getElementById("copy");
   btn.addEventListener("click", function () {
     var done = function () { btn.textContent = "복사했어요"; };
